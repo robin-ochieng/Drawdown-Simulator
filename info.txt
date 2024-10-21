@@ -1,0 +1,34 @@
+A SORP is a statement that is sent annually to members of a defined contribution pension scheme. It contains an estimate of the value of their pension fund upon retirement.
+
+The calculator allows a user to enter the details of their plan and returns the value of their fund at a specified retirement age. The SORP Calculator outputs the periodic payment received, given that the fund is used to purchase an annuity. Additionally, a graph showing the fund value over time, and a table displaying the time progression of the fund is generated.
+
+
+
+
+
+Secure your future with our SORP Calculator! Designed to empower you with clear insights into your retirement planning, this interactive application calculates the future value of your pension fund and estimates periodic annuity payments.
+
+See how easy it is to customize your retirement strategy! Whether you're just starting out or nearing retirement, our tool adapts to your financial goals, providing a detailed graph of fund growth over time and a dynamic table of fund projections.
+
+Ready to take control of your retirement planning? Want a bespoke app that makes complex calculations straightforward? Comment below or send us a DM!
+
+#RetirementPlanning #PensionFund #FinancialFreedom #RShiny #DataVisualization #InteractiveTools #FinancialPlanning
+
+
+
+
+
+
+
+
+
+
+Planning for retirement just got easier! Introducing our SORP Calculator, an intuitive application that lets you visualize your retirement savings journey.
+
+With just a few clicks, set your parameters and watch as our calculator forecasts your fund's growth, showing you the potential future value and the annuity payments you can expect upon retirement.
+
+See the calculator in action and discover how you can fine-tune your savings strategy for maximum benefits. Perfect for individuals and financial planners alike!
+
+Interested in custom tools to navigate your financial landscape? Drop us a message or comment below to learn how we can help!
+
+#FinancialTools #RetirementSavings #RShinyApp #PensionPlanning #InvestInYourFuture #DataDrivenDecisions #InteractiveApp
