@@ -320,6 +320,29 @@
     }
   },
 
+    portfolio_update <- function(session, input_mean_return, new_mean_return, input_ret_std_dev, new_ret_std_dev){
+    updateNumericInputIcon(session, input_mean_return, value = new_mean_return)
+    updateNumericInputIcon(session, input_ret_std_dev, value = new_ret_std_dev)
+  },
+
+  portfolio <- function(session, input_mean_return, input_ret_std_dev, means = c(2.5, 3, 3.5), std_devs = c(2, 4, 7)){
+    if(is.character(results)){
+      results <<- parse_vector(results, col_integer()) 
+    }
+    x = mean(results)
+    if(x < 7/3){
+      portfolio_update(session, input_mean_return, means[1], input_ret_std_dev, std_devs[1])
+      h1("Low Risk Appetite")
+    } else if (x <= 11/3){
+      portfolio_update(session, input_mean_return, means[2], input_ret_std_dev, std_devs[2])
+      h1("Moderate Risk Appetite")
+    } else{
+      portfolio_update(session, input_mean_return, means[3], input_ret_std_dev, std_devs[3])
+      h1("High Risk Appetite")
+    }
+  },
+
+
 
 # Plotly - Horizontal & Vertical Lines ------------------------------------
 plotly_hline <- function(y = 0, colour = "blue") {
@@ -328,7 +351,15 @@ plotly_hline <- function(y = 0, colour = "blue") {
 
 plotly_vline <- function(x = 0, colour = "red") {
   list(type = "line", y0 = 0, y1 = 1, yref = "paper", x0 = x, x1 = x, line = list(color = colour, width = 3, dash = 'dash'))
-}
+},
+
+# Risk Profiler Functions -------------------------------------------------
+  save_results <- function(session, submit, survey){
+    if(submit %% (num.quest + 2) > 0 && (submit %% (num.quest + 2) <= num.quest)){
+      try(results[submit %% (num.quest + 2)] <<- survey, silent = T)
+    }
+    return("")
+  }
 
   )
 

@@ -106,13 +106,12 @@ ui <- dashboardPage(
   ),
   sidebar = dashboardSidebar(
     skin = "light",
+    disabled = TRUE,
     sidebarMenu(
-      br(),
-      br(),
-      menuItem("Dashboard", tabName = "drawdown_simulator", icon = icon("landmark"))
-    ),
-    div(class = "sidebar-footer",
-        img(src = "images/kenbright2.png")
+      id = NULL,
+      div(class = "sidebar-footer",
+          img(src = "images/kenbright2.png")
+      )
     )
   ),
   dashboardBody(
@@ -122,9 +121,8 @@ ui <- dashboardPage(
       tags$link(href = "https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap", rel = "stylesheet"),
       tags$link(rel = "shortcut icon", href = "favicon/kenbright2.ico", type = "image/x-icon")
       ),
-    tabItems(
-      tabItem(tabName = "drawdown_simulator", source("modules/drawdownSimulatorUI.R", local = TRUE)[1])
-  )
+      source("modules/drawdownSimulatorUI.R", local = TRUE)[1]
+
   ),
   footer = bs4DashFooter(
     div(style = "background-color: #fff; color: black; text-align: center; padding: 8px;", 

@@ -1,5 +1,5 @@
 list(
-  box(h1("Drawdown Simulator"), width = 12, background = "white"),
+    div(class = "drawdown-simulator-container", h1("Drawdown Simulator")),
   
   sidebarLayout(
     
