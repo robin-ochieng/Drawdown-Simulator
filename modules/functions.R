@@ -318,8 +318,17 @@
     } else {
       return(mainui)
     }
-  }
+  },
 
+
+# Plotly - Horizontal & Vertical Lines ------------------------------------
+plotly_hline <- function(y = 0, colour = "blue") {
+  list(type = "line", x0 = 0, x1 = 1, xref = "paper", y0 = y, y1 = y, line = list(color = colour, width = 3, dash = 'dash'))
+},
+
+plotly_vline <- function(x = 0, colour = "red") {
+  list(type = "line", y0 = 0, y1 = 1, yref = "paper", x0 = x, x1 = x, line = list(color = colour, width = 3, dash = 'dash'))
+}
 
   )
 
