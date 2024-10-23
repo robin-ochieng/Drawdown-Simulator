@@ -116,6 +116,8 @@ list(
 # UI Functions ------------------------------------------------------------
   drawdown_ui_reactive <- reactive({
     mainui = list(
+      column(12,
+    fluidRow(
       box(
         title = "Life Expectancy", status = 'primary', solidHeader = T, width = 4,
         h3(textOutput('drawdown_text_life_ex'))
@@ -127,13 +129,15 @@ list(
       box(
         title = "Probability of Ruin", status = "primary", solidHeader = T, width = 4,
         h3(textOutput("drawdown_text_ruin_prob_life_ex"))
-      ),
+      )
+    ),
       tabBox(type = "tabs", width = 12,
              tabPanel("Summary", plotlyOutput("drawdown_plot_percentiles")),
              tabPanel("Simulations", plotOutput("drawdown_plot_sims")),
              tabPanel("Table", DT::dataTableOutput("drawdown_table"), rownames = FALSE)
              )
       )
+    )
     return(riskprofilerui(session = session,
                           surveydisplay = input$drawdown_surveydisplay,
                           submit = input$drawdown_submit, 

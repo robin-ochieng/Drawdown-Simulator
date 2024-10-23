@@ -1,8 +1,5 @@
 list(
-    div(class = "drawdown-simulator-container", h1("Drawdown Simulator")),
-  
   sidebarLayout(
-    
     sidebarPanel(actionButton(inputId = "drawdown_resim", label = "Re-Run Simulation", style = "background-color: white; float:right", icon("random")),
                  br(), br(),
                  numericInputIcon(inputId = "drawdown_retire_age", label = "Age at Retirement:", value = 66, min = 55, max = getOmega(ILT15_female_reduced), icon = list(NULL, "Years")),

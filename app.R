@@ -98,22 +98,12 @@ ui <- dashboardPage(
   fullscreen = FALSE,
   scrollToTop = TRUE,
   freshTheme = my_theme,
-  dashboardHeader(
-    disable = TRUE, 
-    controlbarIcon = NULL,
-    fixed = TRUE
-    #tags$div(class = "control-bar", actionButton("toggleControlbar", "Input Controls", class = "btn btn-primary control-button"))
-  ),
-  sidebar = dashboardSidebar(
-    skin = "light",
-    disabled = TRUE,
-    sidebarMenu(
-      id = NULL,
-      div(class = "sidebar-footer",
-          img(src = "images/kenbright2.png")
-      )
-    )
-  ),
+  header = dashboardHeader(
+    tags$li(
+      class = "text-center header-title-container",  # Added a new class for more specific styling
+      tags$h4("Drawdown Simulator", class = "header-title")
+    )),
+  sidebar = dashboardSidebar(disable = TRUE),
   dashboardBody(
     useShinyjs(),
     tags$head(

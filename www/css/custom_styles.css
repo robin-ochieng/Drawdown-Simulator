@@ -90,22 +90,26 @@ body .main-sidebar .sidebar .sidebar-menu li a:hover {
     fill: white !important;  /* Targets SVG icons specifically */
 }
 
+/* Style container to remove list style and position correctly */
+.header-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start of the container */
+  margin-left: 0px; /* Match the sidebar width */
+  position: relative; /* Ensure the container is positioned correctly */
+  width: 260px; /* Match the width of the sidebar-footer */
+  text-align: center; /* Center the title text */
+  padding: 5px 0; /* Add padding to give some space around the title */
+  background-color: #fff; /* Light background color to distinguish the title area */
+  border-radius: 8px; /* Optional: Add rounded corners for a modern look */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more professional look */
 
-.drawdown-simulator-container {
-  text-align: center;
-  width: 300px;
-  margin: 0 auto;
-  padding: 5px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px; /* Adjust as needed */
 }
 
-.drawdown-simulator-container h1 {
-  color: #000000; /* White color for the text */
-  font-family: 'Mulish', sans-serif; /* Example font */
-  font-size: 24px; /* Example size */
+/* Style for the header title */
+.header-title {
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: auto; /* Spacing below the header */
+  color: #0137A6;
+  padding-left: 5px; /* Space after the vertical line */
 }
