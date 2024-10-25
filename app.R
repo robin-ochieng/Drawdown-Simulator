@@ -91,20 +91,20 @@ my_theme <- bs_theme(
   navbar_fg = "#ffffff"
 )
 
-ui <- dashboardPage(
+ui <- bs4DashPage(
   title = "Drawdown Simulator",
   dark = NULL,
   help = NULL,
   fullscreen = FALSE,
   scrollToTop = TRUE,
   freshTheme = my_theme,
-  header = dashboardHeader(
+  header = bs4DashNavbar(
     tags$li(
       class = "text-center header-title-container",  # Added a new class for more specific styling
       tags$h4("Drawdown Simulator", class = "header-title")
     )),
-  sidebar = dashboardSidebar(disable = TRUE),
-  dashboardBody(
+  sidebar = bs4DashSidebar(disable = TRUE),
+  body = bs4DashBody(
     useShinyjs(),
     tags$head(
       includeCSS("www/css/custom_styles.css"),
@@ -112,7 +112,6 @@ ui <- dashboardPage(
       tags$link(rel = "shortcut icon", href = "favicon/kenbright2.ico", type = "image/x-icon")
       ),
       source("modules/drawdownSimulatorUI.R", local = TRUE)[1]
-
   ),
   footer = bs4DashFooter(
     div(style = "background-color: #fff; color: black; text-align: center; padding: 8px;", 
