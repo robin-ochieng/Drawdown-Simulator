@@ -43,7 +43,7 @@ list(
     median = Drawdown_Percentile_Life_Ex(Drawdown_Paths = drawdown_paths_reactive(),
                                          freq = drawdown_inputs$drawdown_withdraw_freq,
                                          age = drawdown_inputs$drawdown_retire_age)
-    return(c("€", round_2d(median, T)))
+    return(c("KES ", round_2d(median, T)))
   }),
   
   output$drawdown_text_ruin_prob_life_ex <- renderText({
@@ -119,22 +119,25 @@ list(
       column(12,
     fluidRow(
       box(
-        title = "Life Expectancy", status = 'primary', solidHeader = T, width = 4,
-        h3(textOutput('drawdown_text_life_ex')), class = "custom-box"
+        title = tagList(span(class = "box-title", "Life Expectancy")), status = 'white', solidHeader = T, width = 4,
+        h3(textOutput('drawdown_text_life_ex'))
       ),
       box(
-        title = "Median Fund Value", status = "primary", solidHeader = T, width = 4,
-        h3(textOutput("drawdown_text_median_fund_life_ex")), class = "custom-box"
+        title = tagList(span(class = "box-title", "Median Fund Value")), status = "white", solidHeader = T, width = 4,
+        h3(textOutput("drawdown_text_median_fund_life_ex"))
       ),
       box(
-        title = "Probability of Ruin", status = "primary", solidHeader = T, width = 4,
-        h3(textOutput("drawdown_text_ruin_prob_life_ex")), class = "custom-box"
+        title = tagList(span(class = "box-title", "Probability of Ruin")), status = "white", solidHeader = T, width = 4,
+        h3(textOutput("drawdown_text_ruin_prob_life_ex"))
       )
     ),
-      tabBox(type = "tabs", width = 12,
-             tabPanel("Summary", plotlyOutput("drawdown_plot_percentiles")),
-             tabPanel("Simulations", plotOutput("drawdown_plot_sims")),
-             tabPanel("Table", DT::dataTableOutput("drawdown_table"), rownames = FALSE)
+      tabBox(
+        type = "tabs",
+        selected = "Simulations",
+        width = 12,
+        tabPanel("Summary", id = "summaryTab", plotlyOutput("drawdown_plot_percentiles"), height = 700),
+        tabPanel("Simulations", id = "simulationsTab", plotOutput("drawdown_plot_sims"), height = 700),
+        tabPanel("Table", id = "tableTab", DT::dataTableOutput("drawdown_table"), height = 700, rownames = FALSE)
              )
       )
     )
