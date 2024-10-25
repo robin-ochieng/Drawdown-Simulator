@@ -113,27 +113,14 @@ body .main-sidebar .sidebar .sidebar-menu li a:hover {
   padding-left: 5px; /* Space after the vertical line */
 }
 
-/* Sidebar Panel Container---------------------------------------------------------------  */
-.header-title-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Align items to the start of the container */
-  margin-left: 0px; /* Match the sidebar width */
-  position: relative; /* Ensure the container is positioned correctly */
-  width: 260px; /* Match the width of the sidebar-footer */
-  text-align: center; /* Center the title text */
-  padding: 5px 0; /* Add padding to give some space around the title */
-  background-color: #fff; /* Light background color to distinguish the title area */
-  border-radius: 8px; /* Optional: Add rounded corners for a modern look */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a more professional look */
-}
-
-
 /* General sidebar styling */
 .sidebar-panel {
-  background-color: #f8f9fa;
-  border-right: 2px solid #dee2e6;
+  background-color: #ffffff;
+  border-right: 1px solid #dee2e6;
   padding: 20px;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-left: 1px solid #dee2e6;
 }
 
 /* Styling for action buttons */
@@ -154,13 +141,13 @@ body .main-sidebar .sidebar .sidebar-menu li a:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 5px 10px;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 /* Label styling */
 .label {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   display: block;
 }
 
@@ -170,7 +157,7 @@ body .main-sidebar .sidebar .sidebar-menu li a:hover {
   color: #fff;
   border-radius: 4px;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 /* Numeric inputs with icons */
@@ -188,4 +175,84 @@ body .main-sidebar .sidebar .sidebar-menu li a:hover {
   color: #666;
 }
 
+
+
+/* Custom cards and tabbox-------------------- ----------------------------------------------- */
+/* Custom styling for all boxes in the dashboard */
+/* Custom styling for box titles */
+.box-title {
+  background-color: white;  /* Light gray background for the title area */
+  color: #0137A6;  /* Dark gray text color */
+  padding: 10px 15px;  /* Padding around the text */
+  border-bottom: 1px solid white;  /* A subtle border line to separate from content */
+  border-top-left-radius: 6px;  /* Rounded corners at the top */
+  border-top-right-radius: 6px;
+  font-size: 18px;  /* Slightly larger font size for the title */
+  font-weight: bold;  /* Bold font weight for emphasis */
+  text-align: center;  /* Center-align the title text */
+  margin-bottom: 0;
+}
+
+
+.custom-box {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 20px; 
+  border-top: none; 
+  margin-top: -1px;
+  transition: box-shadow 0.3s ease-in-out; 
+}
+
+.custom-box:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhanced shadow on hover for better focus */
+}
+
+/* Styling for titles and content inside boxes */
+.custom-box h3 {
+  margin-top: 0;
+  color: #333; /* Darker text for better readability */
+  font-size: 24px; /* Larger font size for importance */
+  text-align: center; /* Center aligning the text */
+}
+
+/* Enhancements for the tab panels */
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs > li > a {
+  background-color: #f8f9fa;
+  margin-right: 5px;
+  border: 1px solid transparent;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.nav-tabs > li > a:hover {
+  border-color: #ddd;
+  background-color: #e9ecef;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-bottom-color: transparent;
+}
+
+/* Styling for the content of the tabs */
+.tab-content {
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 
