@@ -198,21 +198,21 @@
   Drawdown_Table <- function(Drawdown_Paths, Drawdown_Withdrawals, freq, series = NULL, points = NULL, colour = NULL, lower = 0.05, upper = 0.95, ruin_value = 0){
     dataframe = Drawdown_DataFrame(Drawdown_Paths = Drawdown_Paths, Drawdown_Withdrawals = Drawdown_Withdrawals, freq = freq, lower = lower, upper = upper, ruin_value = ruin_value)
     freq = p_list[match(freq, freq_list_drawdown)]
-    
+
     if(!is.null(points)){
       points = unlist(points)
       series = list(sort(unique(c(unlist(series), ((freq * points)) + 1))))
-      points = lapply(points, round_2d)
+      points = lapply(points, function(x) round(x, digits = 0))
     }
     if(!is.null(series)){
       dataframe = dataframe[unlist(series), ]
     }
-    dataframe$years = lapply(dataframe$years, round, digits = 2)
+    dataframe$years = lapply(dataframe$years, round, digits = 0)
     
     colnames(dataframe) = c("Years", "Mean Withdrawals", "Mean Fund Value", "Probability of Ruin", paste(toOrdinal(100*lower), 'Percentile'), "Median", paste(toOrdinal(100*upper), 'Percentile'))
     table <- datatable(dataframe, options = list(paging = FALSE, searching = FALSE, info = FALSE, columnDefs = list(list(className = 'dt-center', targets = "_all"))), rownames = FALSE)
-    table <- formatCurrency(table, columns = c("Mean Withdrawals", "Mean Fund Value", paste(toOrdinal(100*lower), 'Percentile'), "Median", paste(toOrdinal(100*upper), 'Percentile')), currency = "€")
-    table <- formatPercentage(table, columns = "Probability of Ruin", digits = 2)
+    table <- formatCurrency(table, columns = c("Mean Withdrawals", "Mean Fund Value", paste(toOrdinal(100*lower), 'Percentile'), "Median", paste(toOrdinal(100*upper), 'Percentile')), currency = "KES ")
+    table <- formatPercentage(table, columns = "Probability of Ruin", digits = 0)
     table <- formatStyle(table, c(1, 4), `border-right` = "solid 1px")
     if(!is.null(points) && !is.null(colour)){
       for(i in 1:length(points)){
@@ -238,7 +238,7 @@
     }
     p <- p + 
       labs(x = "Years", y = "Fund Value") +
-      scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(labels = scales::dollar_format(prefix = "€"), expand = c(0, 0)) +
+      scale_x_continuous(expand = c(0, 0)) + scale_y_continuous(labels = scales::dollar_format(prefix = "KES "), expand = c(0, 0)) +
       theme(legend.position = "none", 
             axis.text.x = element_text(size = 10), axis.text.y = element_text(size = 10),
             axis.title.x = element_text(margin = margin(t = 15, r = 0, b = 0, l = 0)),
@@ -264,7 +264,7 @@
       }
       fig <- fig %>% layout(shapes = vline_list)
     }
-    fig <- fig %>% layout(xaxis = list(title = "Years"), yaxis = list(title = list(text = "Fund Value", standoff = 15), tickprefix = '€', tickformat = ",.", ticklabelposition = "inside"))  
+    fig <- fig %>% layout(xaxis = list(title = "Years"), yaxis = list(title = list(text = "Fund Value", standoff = 15), tickprefix = 'KES ', tickformat = ",.", ticklabelposition = "inside"))  
     fig <- fig %>% layout(legend = list(orientation = "h", xanchor = "center", x = 0.5, y = 1.05))
     fig <- fig %>% layout(hovermode = "x unified")
   },
@@ -275,7 +275,7 @@
       if(submit %% (num.quest + 2) == 0){
         return(list(
           column(12,
-                 img(src='stockmarket.jpeg', height="200px", width="100%")
+                 img(src='stockmarket.jpeg', height="300px", width="100%")
           ),
           br(),
           br(),
