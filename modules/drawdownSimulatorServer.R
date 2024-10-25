@@ -120,15 +120,15 @@ list(
     fluidRow(
       box(
         title = "Life Expectancy", status = 'primary', solidHeader = T, width = 4,
-        h3(textOutput('drawdown_text_life_ex'))
+        h3(textOutput('drawdown_text_life_ex')), class = "custom-box"
       ),
       box(
         title = "Median Fund Value", status = "primary", solidHeader = T, width = 4,
-        h3(textOutput("drawdown_text_median_fund_life_ex"))
+        h3(textOutput("drawdown_text_median_fund_life_ex")), class = "custom-box"
       ),
       box(
         title = "Probability of Ruin", status = "primary", solidHeader = T, width = 4,
-        h3(textOutput("drawdown_text_ruin_prob_life_ex"))
+        h3(textOutput("drawdown_text_ruin_prob_life_ex")), class = "custom-box"
       )
     ),
       tabBox(type = "tabs", width = 12,
