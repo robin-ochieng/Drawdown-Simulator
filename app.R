@@ -75,7 +75,7 @@ round_2d <- function(x, two_d = F){
 
 # Define a custom theme using bslib
 my_theme <- bs_theme(
-  bootswatch = "darkly", 
+  bootswatch = "minty", 
   bg = "#E1E1E1", 
   fg = "#202123", 
   primary = "#EA80FC", 
@@ -115,7 +115,7 @@ ui <- bs4DashPage(
   ),
   footer = bs4DashFooter(
     div(style = "background-color: #fff; color: black; text-align: center; padding: 8px;", 
-        "© 2024 Drawdoan Simulator | Powered by Robin")
+        "© 2024 Drawdown Simulator | Powered by Robin")
   )
 )
 
